@@ -13,14 +13,15 @@ import com.qa.ims.utils.Utils;
  * Takes in customer details for CRUD functionality
  *
  */
-public class CustomerController implements CrudController<Customer> {
-
+public class CustomerController implements CrudController<Customer> 
+{
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private CustomerDAO customerDAO;
 	private Utils utils;
 
-	public CustomerController(CustomerDAO customerDAO, Utils utils) {
+	public CustomerController(CustomerDAO customerDAO, Utils utils) 
+	{
 		super();
 		this.customerDAO = customerDAO;
 		this.utils = utils;
@@ -30,9 +31,11 @@ public class CustomerController implements CrudController<Customer> {
 	 * Reads all customers to the logger
 	 */
 	@Override
-	public List<Customer> readAll() {
+	public List<Customer> readAll() 
+	{
 		List<Customer> customers = customerDAO.readAll();
-		for (Customer customer : customers) {
+		for (Customer customer : customers) 
+		{
 			LOGGER.info(customer.toString());
 		}
 		return customers;
@@ -42,7 +45,8 @@ public class CustomerController implements CrudController<Customer> {
 	 * Creates a customer by taking in user input
 	 */
 	@Override
-	public Customer create() {
+	public Customer create() 
+	{
 		LOGGER.info("Please enter a first name");
 		String firstName = utils.getString();
 		LOGGER.info("Please enter a surname");
@@ -56,7 +60,8 @@ public class CustomerController implements CrudController<Customer> {
 	 * Updates an existing customer by taking in user input
 	 */
 	@Override
-	public Customer update() {
+	public Customer update() 
+	{
 		LOGGER.info("Please enter the id of the customer you would like to update");
 		Long id = utils.getLong();
 		LOGGER.info("Please enter a first name");
@@ -74,10 +79,10 @@ public class CustomerController implements CrudController<Customer> {
 	 * @return
 	 */
 	@Override
-	public int delete() {
+	public int delete() 
+	{
 		LOGGER.info("Please enter the id of the customer you would like to delete");
 		Long id = utils.getLong();
 		return customerDAO.delete(id);
 	}
-
 }

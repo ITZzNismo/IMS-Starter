@@ -6,30 +6,39 @@ import org.apache.logging.log4j.Logger;
 import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
+import com.qa.ims.controller.ItemsController;
 import com.qa.ims.persistence.dao.CustomerDAO;
+import com.qa.ims.persistence.dao.ItemsDAO;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.DBUtils;
 import com.qa.ims.utils.Utils;
 
-public class IMS {
-
+public class IMS 
+{
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private final CustomerController customers;
+	private final ItemsController items;
 	private final Utils utils;
 
-	public IMS() {
+	public IMS() 
+	{
 		this.utils = new Utils();
 		final CustomerDAO custDAO = new CustomerDAO();
 		this.customers = new CustomerController(custDAO, utils);
+		final ItemsDAO itemsDAO = new ItemsDAO();
+		this.items = new ItemsController(itemsDAO, utils);
 	}
 
-	public void imsSystem() {
+	public void imsSystem() 
+	{
 		LOGGER.info("Welcome to the Inventory Management System!");
-		DBUtils.connect();
+		DBUtils.connect("src/main/resources/db.properties");
+		DBUtils.getInstance().init("src/main/resources/sql-schema.sql", "src/main/resources/sql-data.sql");
 
 		Domain domain = null;
-		do {
+		do 
+		{
 			LOGGER.info("Which entity would you like to use?");
 			Domain.printDomains();
 
@@ -37,20 +46,23 @@ public class IMS {
 
 			domainAction(domain);
 
-		} while (domain != Domain.STOP);
+		} 
+		while (domain != Domain.STOP);
 	}
 
-	private void domainAction(Domain domain) {
+	private void domainAction(Domain domain) 
+	{
 		boolean changeDomain = false;
-		do {
-
+		do 
+		{
 			CrudController<?> active = null;
-			switch (domain) {
+			switch (domain) 
+			{
 			case CUSTOMER:
 				active = this.customers;
 				break;
 			case ITEM:
-				active = null;
+				active = this.items;
 				break;
 			case ORDER:
 				active = null;
@@ -66,16 +78,21 @@ public class IMS {
 			Action.printActions();
 			Action action = Action.getAction(utils);
 
-			if (action == Action.RETURN) {
+			if (action == Action.RETURN) 
+			{
 				changeDomain = true;
-			} else {
+			} else 
+			{
 				doAction(active, action);
 			}
-		} while (!changeDomain);
+		} 
+		while (!changeDomain);
 	}
 
-	public void doAction(CrudController<?> crudController, Action action) {
-		switch (action) {
+	public void doAction(CrudController<?> crudController, Action action) 
+	{
+		switch (action) 
+		{
 		case CREATE:
 			crudController.create();
 			break;
@@ -94,5 +111,4 @@ public class IMS {
 			break;
 		}
 	}
-
 }

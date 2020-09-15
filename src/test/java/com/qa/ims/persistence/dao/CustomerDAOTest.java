@@ -16,44 +16,50 @@ public class CustomerDAOTest {
 	private final CustomerDAO DAO = new CustomerDAO();
 
 	@Before
-	public void setup() {
+	public void setup() 
+	{
 		DBUtils.connect("src/test/resources/db.properties");
 		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
 	}
 
 	@Test
-	public void testCreate() {
-		final Customer created = new Customer(2L, "chris", "perrins");
+	public void testCreate() 
+	{
+		final Customer created = new Customer(2L, "Chris", "Perrins");
 		assertEquals(created, DAO.create(created));
 	}
 
 	@Test
-	public void testReadAll() {
+	public void testReadAll() 
+	{
 		List<Customer> expected = new ArrayList<>();
-		expected.add(new Customer(1L, "jordan", "harrison"));
+		expected.add(new Customer(1L, "Jordan", "Harrison"));
 		assertEquals(expected, DAO.readAll());
 	}
 
 	@Test
-	public void testReadLatest() {
-		assertEquals(new Customer(1L, "jordan", "harrison"), DAO.readLatest());
+	public void testReadLatest() 
+	{
+		assertEquals(new Customer(1L, "Jordan", "Harrison"), DAO.readLatest());
 	}
 
 	@Test
-	public void testRead() {
+	public void testRead() 
+	{
 		final long ID = 1L;
-		assertEquals(new Customer(ID, "jordan", "harrison"), DAO.readCustomer(ID));
+		assertEquals(new Customer(ID, "Jordan", "Harrison"), DAO.readCustomer(ID));
 	}
 
 	@Test
-	public void testUpdate() {
-		final Customer updated = new Customer(1L, "chris", "perrins");
+	public void testUpdate() 
+	{
+		final Customer updated = new Customer(1L, "Chris", "Perrins");
 		assertEquals(updated, DAO.update(updated));
-
 	}
 
 	@Test
-	public void testDelete() {
+	public void testDelete() 
+	{
 		assertEquals(1, DAO.delete(1));
 	}
 }
