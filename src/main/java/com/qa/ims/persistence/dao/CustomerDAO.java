@@ -100,13 +100,17 @@ public class CustomerDAO implements Dao<Customer> {
 	 * @return
 	 */
 	@Override
-	public Customer update(Customer customer) {
+	public Customer update(Customer customer) 
+	{
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				Statement statement = connection.createStatement();) {
+				Statement statement = connection.createStatement();) 
+		{
 			statement.executeUpdate("update customers set first_name ='" + customer.getFirstName() + "', surname ='"
 					+ customer.getSurname() + "' where id =" + customer.getId());
 			return readCustomer(customer.getId());
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
@@ -118,16 +122,20 @@ public class CustomerDAO implements Dao<Customer> {
 	 * 
 	 * @param id - id of the customer
 	 */
+	
 	@Override
-	public int delete(long id) {
+	public int delete(long id) 
+	{
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				Statement statement = connection.createStatement();) {
+				Statement statement = connection.createStatement();) 
+		{
 			return statement.executeUpdate("delete from customers where id = " + id);
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return 0;
 	}
-
 }
