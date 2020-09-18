@@ -37,7 +37,7 @@ public class ItemsDAO implements Dao<Items>
 	{
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select * from items");) 
+				ResultSet resultSet = statement.executeQuery("SELECT * from items");) 
 		{
 			List<Items> items = new ArrayList<>();
 			while (resultSet.next()) 
@@ -127,8 +127,8 @@ public class ItemsDAO implements Dao<Items>
 				Statement statement = connection.createStatement();) 
 		{
 			statement.executeUpdate("update items set name ='" + items.getName() + "', price ='"
-					+ items.getPrice() + "' where product_id =" + items.getproductId());
-			return readItems(items.getproductId());
+					+ items.getPrice() + "' where product_id =" + items.getProductId());
+			return readItems(items.getProductId());
 		} 
 		catch (Exception e) 
 		{

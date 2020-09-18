@@ -2,13 +2,13 @@ package com.qa.ims.persistence.domain;
 
 public class Items 
 {
-	private Long productId;
+	private static Long productId;
 	private String name;
 	private float price;
 
 	public Items(Long productId, String name, float price) 
 	{
-		this.setproductId(productId);
+		this.setProductId(productId);
 		this.setName(name);
 		this.setPrice(price);
 	}
@@ -19,14 +19,14 @@ public class Items
 		this.setPrice(price);
 	}
 
-	public Long getproductId() 
+	public static Long getProductId() 
 	{
 		return productId;
 	}
 
-	public void setproductId(Long productId) 
+	public void setProductId(Long productId) 
 	{
-		this.productId = productId;
+		Items.productId = productId;
 	}
 
 	public String getName() 
@@ -52,18 +52,8 @@ public class Items
 	@Override
 	public String toString()
 	{
-		return "Product ID: " + productId + "\n" + "Product Name: " + name + "\n" + "Price: " + price + "\n";
+		return "\n" + "Product ID: " + productId + "\n" + "Product Name: " + name + "\n" + "Price: " + price + "\n";
 	}
-
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + ((name == null) ? 0 : name.hashCode());
-//		result = prime * result + ((id == null) ? 0 : productId.hashCode());
-//		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
-//		return result;
-//	}
 
 	@Override
 	public boolean equals(Object obj) 

@@ -6,4 +6,4 @@ INSERT INTO `ims`.`items` (`name`, `price`) VALUES ('Football', 9.99);
 
 INSERT INTO `ims`.`items` (`name`, `price`) VALUES ('Rugby Ball', 8.99);
 
-INSERT INTO `ims`.`orders` (`date_placed`) VALUES (CURRENT_TIMESTAMP);
+insert into `ims`.`orders`(`order_id`, `customer_id`) VALUES (2, 1);
