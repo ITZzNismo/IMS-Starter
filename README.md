@@ -1,4 +1,6 @@
-Coverage: 72.8%
+IMS Coverage: 72.8%
+src/main/java Coverage: 63.1%
+
 ## Inventory Management System (IMS)
 
 This project manages customers, items and orders within an IMS database. This allows the user to create, read, update or delete anything in the customers, items and orders tables.
