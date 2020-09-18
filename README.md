@@ -71,6 +71,4 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Thank you 
-* Inspiration
-* etc
+* Thank you Jordan Harrison (https://github.com/JHarry444) for your support and initialise help in this project
