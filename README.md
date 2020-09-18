@@ -1,4 +1,5 @@
 IMS Coverage: 72.8%
+
 src/main/java Coverage: 63.1%
 
 ## Inventory Management System (IMS)
