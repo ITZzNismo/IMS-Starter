@@ -5,14 +5,14 @@ This project manages customers, items and orders within an IMS database. This al
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 1. Download/clone the IMS-Starter into your local machine.
 2. Open up your chosen IDE.
 3. Import the project from your files.
 4. Open the Runner class and press run.
 5. Follow the instructions in the console.
-6. Open and edit other classes for testing and development purposes
+6. Open and edit other classes for testing and development purposes.
 
 ### Prerequisites
 
@@ -39,56 +39,16 @@ You will need:
 <ins>How to install Eclipse</ins>
 1. Follow this link: https://www.eclipse.org/downloads/packages/installer
 2. Follow the on-screen instructions to install the latest version of Eclipse.
-3. Once downloaded, go to File -> New -> Java Project -> Give it a name -> Click Finish. -> Right-click on the project -> New -> Give it a name -> tick the box that states: public static void main(String[] args) -> Click finish -> Within the main method type: System.out.println("Hello World"); -> Save the class by pressing ctrl + s -> Click run or press ctrl + f11. Hello World will print in the console, which shows you a basic example that shows that Java and Eclipse (or your preferred IDE)
-
-### Installing
-A step by step series of examples that tell you how to get a development env running
-
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+3. Once downloaded, go to File -> New -> Java Project -> Give it a name -> Click Finish. -> Right-click on the project -> New -> Give it a name -> tick the box that states: public static void main(String[] args) -> Click finish -> Within the main method type: System.out.println("Hello World"); -> Save the class by pressing ctrl + s -> Click run or press ctrl + f11. Hello World will print in the console, which shows you a basic example that shows that Java and Eclipse (or your preferred IDE) is working.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+1. Open either the DAOTest, ControllerTest or Test for Customers, Items or Orders in the Test package.
+2. Press run or ctrl + f11 to test the corresponding file.
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+These tests will test their corresponding main file e.g. ItemsControllerTest will test ItemsController in main.
 
 ## Built With
 
@@ -101,6 +61,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
+* **Simon Powelll** - *Further development* - [Simon Powell] 
 
 ## License
 
