@@ -6,48 +6,58 @@ public class Customer {
 	private String firstName;
 	private String surname;
 
-	public Customer(String firstName, String surname) {
+	public Customer(String firstName, String surname) 
+	{
 		this.setFirstName(firstName);
 		this.setSurname(surname);
 	}
 
-	public Customer(Long id, String firstName, String surname) {
+	public Customer(Long id, String firstName, String surname) 
+	{
 		this.setId(id);
 		this.setFirstName(firstName);
 		this.setSurname(surname);
 	}
 
-	public Long getId() {
+	public Long getId() 
+	{
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id) 
+	{
 		this.id = id;
 	}
 
-	public String getFirstName() {
+	public String getFirstName() 
+	{
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName) 
+	{
 		this.firstName = firstName;
 	}
 
-	public String getSurname() {
+	public String getSurname() 
+	{
 		return surname;
 	}
 
-	public void setSurname(String surname) {
+	public void setSurname(String surname) 
+	{
 		this.surname = surname;
 	}
 
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "\n" + "ID: " + id + "\n" + "First Name: " + firstName + "\n" + "Surname: " + surname + "\n";
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode() 
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
@@ -57,7 +67,8 @@ public class Customer {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) 
+	{
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -65,22 +76,26 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (getFirstName() == null) {
+		if (getFirstName() == null) 
+		{
 			if (other.getFirstName() != null)
 				return false;
 		} else if (!getFirstName().equals(other.getFirstName()))
 			return false;
-		if (id == null) {
+		if (id == null) 
+		{
 			if (other.id != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} 
+		else if (!id.equals(other.id))
 			return false;
-		if (surname == null) {
+		if (surname == null) 
+		{
 			if (other.surname != null)
 				return false;
-		} else if (!surname.equals(other.surname))
+		} 
+		else if (!surname.equals(other.surname))
 			return false;
 		return true;
 	}
-
 }
