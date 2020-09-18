@@ -45,11 +45,11 @@ public class OrdersController implements CrudController<Orders>
 	@Override
 	public Orders create() 
 	{
-		LOGGER.info("Please enter an order ID");
-		Long orderId = utils.getLong();
+//		LOGGER.info("Please enter an order ID");
+//		Long orderId = utils.getLong();
 		LOGGER.info("Please enter your customer ID");
 		Long customerId = utils.getLong();
-		Orders orders = ordersDAO.create(new Orders(orderId, customerId));
+		Orders orders = ordersDAO.create(new Orders(customerId));
 		LOGGER.info("order created");
 		return orders;
 	}
@@ -66,7 +66,7 @@ public class OrdersController implements CrudController<Orders>
 		Long orderId = utils.getLong();
 		LOGGER.info("Would you like to add or remove an item?");
 		
-		if(utils.getString() == "Add")
+		if(utils.getString() == "add")
 		{
 		LOGGER.info("Please enter the product ID you would like to add to this order");
 		Long productId = utils.getLong();
@@ -74,7 +74,7 @@ public class OrdersController implements CrudController<Orders>
 		order = ordersDAO.addItem(orderId, productId);
 		}
 		
-		else if(utils.getString() == "Remove")
+		else if(utils.getString() == "remove")
 		{
 			LOGGER.info("Please enter the product ID you would like to remove from this order");
 			Long productId = utils.getLong();

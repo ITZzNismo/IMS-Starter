@@ -113,10 +113,10 @@ public class ItemsDAO implements Dao<Items>
 	}
 
 	/**
-	 * Updates a customer in the database
+	 * Updates an item in the database
 	 * 
-	 * @param customer - takes in a customer object, the id field will be used to
-	 *                 update that customer in the database
+	 * @param items - takes in an items object, the id field will be used to
+	 *                 update that item in the database
 	 * @return
 	 */
 	

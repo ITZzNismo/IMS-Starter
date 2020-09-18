@@ -2,7 +2,7 @@ package com.qa.ims.persistence.domain;
 
 public class Items 
 {
-	private static Long productId;
+	private Long productId;
 	private String name;
 	private float price;
 
@@ -19,14 +19,14 @@ public class Items
 		this.setPrice(price);
 	}
 
-	public static Long getProductId() 
+	public Long getProductId() 
 	{
 		return productId;
 	}
 
 	public void setProductId(Long productId) 
 	{
-		Items.productId = productId;
+		this.productId = productId;
 	}
 
 	public String getName() 

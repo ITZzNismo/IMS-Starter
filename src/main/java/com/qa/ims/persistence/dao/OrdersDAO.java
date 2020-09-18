@@ -15,11 +15,13 @@ import org.apache.logging.log4j.Logger;
 import com.qa.ims.persistence.domain.Items;
 import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.utils.DBUtils;
+import com.qa.ims.utils.Utils;
 
 public class OrdersDAO implements Dao<Orders>
 {
 
 	public static final Logger LOGGER = LogManager.getLogger();
+	Utils utils = new Utils();
 
 	@Override
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException 
@@ -29,6 +31,14 @@ public class OrdersDAO implements Dao<Orders>
 		return new Orders(orderId, customerId);
 	}
 
+	public Orders modelOne(ResultSet resultSet) throws SQLException 
+	{
+		Long orderId = resultSet.getLong("order_id");
+		Long customerId = resultSet.getLong("customer_id");
+		String productName = resultSet.getString("name");
+		float price = resultSet.getFloat("price");
+		return new Orders(orderId, customerId, productName, price);
+	}
 	/**
 	 * Reads all orders from the database
 	 * 
@@ -40,14 +50,14 @@ public class OrdersDAO implements Dao<Orders>
 	{
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select orders.order_id, order_line.product_id, concat(customers.first_name,\" \", " + "customers.surname) as Customer, "
-						+ "items.name, items.price, " + "sum(price) from orders as total, order_line, items, customers where orders.order_id = " 
-						+ "order_line.order_id and items.product_id = order_line.product_id and orders.customer_id = customers.id order by orders.order_id, order_line.product_id;");)
+				ResultSet resultSet = statement.executeQuery("select orders.order_id, orders.customer_id, items.name, "
+						+ "items.price from orders, order_line, items where orders.order_id = order_line.order_id "
+						+ "and order_line.product_id = items.product_id;"))
 		{
 			List<Orders> orders = new ArrayList<>();
 			while (resultSet.next()) 
 			{
-				orders.add(modelFromResultSet(resultSet));
+				orders.add(modelOne(resultSet));
 			}
 			return orders;
 		} 
@@ -88,9 +98,13 @@ public class OrdersDAO implements Dao<Orders>
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) 
 		{
-			statement.executeUpdate("INSERT INTO orders(order_id, customer_id) values('" + orders.getOrderId()
-					+ "','" + orders.getCustomerId() + "')");
-			return readLatest();
+			statement.executeUpdate("INSERT INTO orders(customer_id) values(" + orders.getCustomerId() + ")");
+			Orders temp = readLatest();
+			LOGGER.info("Please enter your product ID");
+			Long productId = utils.getLong();
+			statement.executeUpdate("INSERT INTO order_line(order_id, product_id) values(" + temp.getOrderId() + "," + productId + ")");
+			return temp;
+			
 		} 
 		catch (Exception e) 
 		{
@@ -106,8 +120,8 @@ public class OrdersDAO implements Dao<Orders>
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders where order_id = " + orderId);) 
 		{
-//			ResultSetMetaData rsmd = resultSet.getMetaData();
-//			System.out.println(rsmd.getColumnName(1));
+			ResultSetMetaData rsmd = resultSet.getMetaData();
+			System.out.println(rsmd.getColumnName(1));
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} 
@@ -133,7 +147,7 @@ public class OrdersDAO implements Dao<Orders>
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) 
 		{
-			statement.executeUpdate("update orders set product_id ='" + Items.getProductId() + "' where order_id =" + orders.getOrderId());
+//			statement.executeUpdate("update orders set product_id ='" + getProductId() + "' where order_id =" + orders.getOrderId());
 			return readOrders(orders.getOrderId());
 		} 
 		catch (Exception e) 

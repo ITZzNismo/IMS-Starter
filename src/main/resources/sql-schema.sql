@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS `ims`.`items` (
 
 CREATE TABLE IF NOT EXISTS	`ims`.`orders` (
 	`order_id` INT(11) NOT NULL AUTO_INCREMENT,
-	`customer_id` INT(11) NOT NULL
-	PRIMARY KEY (order_id),
+	`customer_id` INT(11) NOT NULL,
+	PRIMARY KEY (`order_id`),
 	FOREIGN KEY (`customer_id`) 
-	REFERENCES `ims`.`customers` (`id`),
+	REFERENCES `ims`.`customers` (`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `ims`.`order_line` ( 
