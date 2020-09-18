@@ -60,8 +60,8 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-* **Simon Powelll** - *Further development* - [Simon Powell] 
+* **Chris Perrins** - *Initial work* - [christophperrins] (https://github.com/christophperrins)
+* **Simon Powelll** - *Further development* - [Simon Powell] (https://github.com/spowell24)
 
 ## License
 
@@ -71,6 +71,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
+* Thank you 
 * Inspiration
 * etc
