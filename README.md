@@ -1,19 +1,39 @@
-Coverage: 34%
-# Project Title
+Coverage: 72.8%
+## Inventory Management System (IMS)
 
-One Paragraph of project description goes here
+This project manages customers, items and orders within an IMS database. This allows the user to create, read, update or delete anything in the customers, items and orders tables.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+1. Download/clone the IMS-Starter into your local machine.
+2. Open up your chosen IDE.
+3. Import the project from your files.
+4. Open the Runner class and press run.
+5. Follow the instructions in the console.
+6. Open and edit other classes for testing and development purposes
+
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You will need:
+1. MySQL.
+2. Java.
+3. Eclipse (Recommended but can be any IDE).
 
-```
-Give examples
-```
+How to install MySQL:
+1. Follow this link: https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/ and make sure the version is set to 5.7.
+2. Click on the install button which is relevant to your system.
+3. Follow the on-screen instructions.
+4. If you are using Windows 10, follow this link for a helpful tutorial video explaining the installation procedure and the solutions to any problems that may arise: https://www.youtube.com/watch?v=P99dA0yGY8g&t=1475s
+
+<ins>How to install Java:</ins>
+1. Follow this link: https://www.java.com/en/download/manual.jsp
+2. Click the download link associatd to your system.
+3. Follow the on-screen instructions.
+4. Make sure to select Java 8.
+
+
 
 ### Installing
 
