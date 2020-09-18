@@ -21,23 +21,29 @@ You will need:
 2. Java.
 3. Eclipse (Recommended but can be any IDE).
 
-How to install MySQL:
+## Installing
+
+<ins>How to install MySQL</ins>
 1. Follow this link: https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/ and make sure the version is set to 5.7.
 2. Click on the install button which is relevant to your system.
 3. Follow the on-screen instructions.
 4. If you are using Windows 10, follow this link for a helpful tutorial video explaining the installation procedure and the solutions to any problems that may arise: https://www.youtube.com/watch?v=P99dA0yGY8g&t=1475s
+5. Once MySQL is fully installed and working type (without quotation marks) "create database example;" -> "use example"; -> "create table example_table(example_column int(5));" -> "insert into example_table(example_column) values(100);" -> "select * from example_table;". This will show you a completed table as a basic example of how SQL works
 
-<ins>How to install Java:</ins>
+<ins>How to install Java</ins>
 1. Follow this link: https://www.java.com/en/download/manual.jsp
 2. Click the download link associatd to your system.
 3. Follow the on-screen instructions.
 4. Make sure to select Java 8.
 
-
+<ins>How to install Eclipse</ins>
+1. Follow this link: https://www.eclipse.org/downloads/packages/installer
+2. Follow the on-screen instructions to install the latest version of Eclipse.
+3. Once downloaded, go to File -> New -> Java Project -> Give it a name -> Click Finish. -> Right-click on the project -> New -> Give it a name -> tick the box that states: public static void main(String[] args) -> Click finish -> Within the main method type: System.out.println("Hello World"); -> Save the class by pressing ctrl + s -> Click run or press ctrl + f11. Hello World will print in the console, which shows you a basic example that shows that Java and Eclipse (or your preferred IDE)
 
 ### Installing
-
 A step by step series of examples that tell you how to get a development env running
+
 
 Say what the step will be
 
