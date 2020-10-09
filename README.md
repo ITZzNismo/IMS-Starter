@@ -55,7 +55,7 @@ These tests will test their corresponding main file e.g. ItemsControllerTest wil
 
 ## Built With
 
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [Maven](https://maven.apache.org/) - Dependency Management.
 
 ## Versioning
 
@@ -64,7 +64,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins] (https://github.com/christophperrins)
-* **Simon Powelll** - *Further development* - [Simon Powell] (https://github.com/spowell24)
+* **Simon Powell** - *Further development* - [Simon Powell] (https://github.com/spowell24)
 
 ## License
 
@@ -74,4 +74,4 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Thank you Jordan Harrison (https://github.com/JHarry444) for your support and initialise help in this project
+* Thank you Jordan Harrison (https://github.com/JHarry444) for your support and initialise help in this project.
